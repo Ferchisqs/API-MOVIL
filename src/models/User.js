@@ -17,7 +17,6 @@ const User = sequelize.define('User', {
   tableName: 'Users' 
 });
 
-// Hashear la contraseña antes de crear un usuario
 User.beforeCreate(async (user) => {
   if (user.password) {
     user.password = await bcrypt.hash(user.password, 10);
